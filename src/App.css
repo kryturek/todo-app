@@ -1,0 +1,72 @@
+#root {
+	display: flex;
+	justify-content: center;
+}
+
+.logo {
+	height: 10em;
+	padding: 1.5rem;
+	will-change: filter;
+	transition: filter 300ms;
+}
+.logo:hover {
+	filter: drop-shadow(0 0 2em #8723f8aa);
+}
+
+@keyframes logo-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	a .logo {
+		animation: logo-spin infinite 12s ease-in-out;
+	}
+}
+
+.app-wrapper {
+	width: max(70%, 700px);
+	background-color: red;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.header-wrapper {
+	padding-block: 1rem;
+	background-color: darkcyan;
+}
+
+.addTodo-wrapper form {
+	padding-block: 1rem;
+	background-color: darkslategray;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	input {
+		height: 2rem;
+		padding: 0 0.5rem;
+		border: none;
+		min-width: clamp(10rem, 50%, 25rem);
+	}
+
+	button {
+		height: 2rem;
+		background-color: darkmagenta;
+		border: none;
+		cursor: pointer;
+	}
+
+	button img {
+		width: 2rem;
+	}
+}
