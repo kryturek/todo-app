@@ -2,7 +2,7 @@ import arrowRight from "../assets/arrow-right.svg";
 import capitalize from "../lib/capitalize";
 import trim from "../lib/trim";
 
-export default function AddTodo({ input, setInput, setTasks }) {
+export default function AddTodo({ inputRef, input, setInput, setTasks }) {
 	function handleSubmit(ev) {
 		ev.preventDefault();
 
@@ -26,6 +26,7 @@ export default function AddTodo({ input, setInput, setTasks }) {
 					type="text"
 					value={input}
 					onChange={(ev) => setInput(ev.target.value)}
+					ref={inputRef}
 				/>
 				<button>
 					<img src={arrowRight} alt="submit" />

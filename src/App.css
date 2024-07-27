@@ -47,7 +47,7 @@
 .app-wrapper {
 	height: 100vh;
 	width: max(70%, 700px);
-	background-color: red;
+	/* background-color: red; */
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -74,7 +74,7 @@
 
 .header-wrapper {
 	padding-block: 1rem;
-	background-color: darkcyan;
+	/* background-color: darkcyan; */
 	background-image: linear-gradient(to top, darkcyan, rgba(8, 95, 136, 0.603));
 	display: flex;
 	justify-content: center;
@@ -89,6 +89,10 @@
 }
 
 @media (max-height: 700px) {
+	.header-wrapper {
+		padding-block: 0;
+	}
+
 	.logo {
 		height: 6em;
 	}
@@ -136,7 +140,13 @@
 }
 
 .todos-wrapper {
-	background-color: rgb(108, 127, 133);
+	/* background-color: rgb(108, 127, 133); */
+	background-color: darkcyan;
+	background-image: linear-gradient(
+		to bottom,
+		darkcyan,
+		rgba(157, 255, 0, 0.034)
+	);
 	display: flex;
 	flex-direction: column;
 	flex: 1;

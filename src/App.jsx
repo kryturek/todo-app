@@ -12,19 +12,35 @@ function App() {
 	);
 
 	const endOfTasksRef = useRef(null);
+	const prevLengthOfTasksRef = useRef(tasks.length);
+	const inputRef = useRef(null);
 
 	useEffect(() => {
 		localStorage.setItem("tasks", JSON.stringify(tasks));
 	}, [tasks]);
 
 	useEffect(() => {
-		endOfTasksRef.current?.scrollIntoView({ behaviour: "smooth" });
+		if (tasks.length > prevLengthOfTasksRef.current) {
+			endOfTasksRef.current?.scrollIntoView({ behaviour: "smooth" });
+			prevLengthOfTasksRef.current = tasks.length;
+		}
 	}, [tasks.length]);
+
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.focus();
+		}
+	}, [inputRef.current]);
 
 	return (
 		<div className="app-wrapper">
 			<Header />
-			<AddTodo input={input} setInput={setInput} setTasks={setTasks} />
+			<AddTodo
+				ref={inputRef}
+				input={input}
+				setInput={setInput}
+				setTasks={setTasks}
+			/>
 			<Todos
 				tasks={tasks}
 				setTasks={setTasks}
