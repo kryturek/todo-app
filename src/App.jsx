@@ -7,24 +7,19 @@ import Footer from "./components/Footer";
 
 function App() {
 	const [input, setInput] = useState("");
-	const [tasks, setTasks] = useState([]);
+	const [tasks, setTasks] = useState(
+		JSON.parse(localStorage.getItem("tasks") || [])
+	);
+
 	const endOfTasksRef = useRef(null);
-
-	useEffect(() => {
-		const savedTasks = localStorage.getItem("tasks");
-
-		if (savedTasks) {
-			setTasks(JSON.parse(savedTasks));
-		}
-	}, []);
 
 	useEffect(() => {
 		localStorage.setItem("tasks", JSON.stringify(tasks));
 	}, [tasks]);
 
 	useEffect(() => {
-		endOfTasksRef.current?.scrollIntoView();
-	}, [tasks]);
+		endOfTasksRef.current?.scrollIntoView({ behaviour: "smooth" });
+	}, [tasks.length]);
 
 	return (
 		<div className="app-wrapper">

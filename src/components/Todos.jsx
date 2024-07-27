@@ -3,7 +3,7 @@ import Todo from "./Todo";
 export default function Todos({ tasks, setTasks, endOfTasksRef }) {
 	return (
 		<div className="todos-wrapper">
-			{tasks.map((el) => {
+			{tasks.map((el, index) => {
 				return (
 					<Todo
 						key={el.id}
@@ -11,6 +11,7 @@ export default function Todos({ tasks, setTasks, endOfTasksRef }) {
 						text={el.text}
 						checked={el.checked}
 						setTasks={setTasks}
+						index={index}
 					/>
 				);
 			})}
