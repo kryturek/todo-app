@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 function App() {
 	const [input, setInput] = useState("");
 	const [tasks, setTasks] = useState(
-		JSON.parse(localStorage.getItem("tasks") || [])
+		localStorage ? JSON.parse(localStorage.getItem("tasks")) : []
 	);
 
 	const endOfTasksRef = useRef(null);
